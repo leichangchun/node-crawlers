@@ -1,1 +1,3 @@
 **/node_modules
+./superagent_cheerio_demo/content
+./superagent_cheerio_demo/imgs
