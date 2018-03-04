@@ -55,11 +55,14 @@ function saveContent() {
 }
 //下载爬到的图片
 function downloadImg() {
-    imgs.forEach((imgUrl,index) => {  
-        let imgName = imgUrl.split('/')[-1];
+    imgs.forEach((imgUrl,index) => {
+        //获取图片名  
+        let imgName = imgUrl.split('/').pop();
+
+        //下载图片存放到指定目录
         let stream = fs.createWriteStream(`./imgs/${imgName}`);
-        let req = request.get('http:' + imgUrl);
+        let req = request.get('https:' + imgUrl);
         req.pipe(stream);
-        console.log('开始下载图片' + imgUrl);         
+        console.log(`开始下载图片 https:${imgUrl} --> ./imgs/${imgName}`);         
     } )
 }
