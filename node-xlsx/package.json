@@ -1,0 +1,15 @@
+{
+  "name": "xlsx",
+  "version": "1.0.0",
+  "description": "oh, maybe this is a homework!",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "node-xlsx": "^0.12.0",
+    "superagent": "^3.8.2"
+  }
+}
