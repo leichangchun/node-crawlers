@@ -81,9 +81,9 @@ types.map( type => {
                     if(code === trafficCode){
                         traffic.map( (tra,tra_index) => {
                             trafficSheetDate[traffic.length * type + tra_index][0].push(date);
-                            if(trafficSheetDate[traffic.length * type + tra_index].lenght === 1){
+                            if(trafficSheetDate[traffic.length * type + tra_index].length === 1){
                                 real.map((value) => {
-                                    trafficSheetDate[traffic.length * type + tra_index].push([value[0],value[tra_index]])
+                                    trafficSheetDate[traffic.length * type + tra_index].push([value[0],value[tra_index + 2]])
                                 })
                             }else{
                                 real.map( (value) => {
@@ -92,7 +92,7 @@ types.map( type => {
 
                                         if( city[0] === value[0]){
                                             extendArray(city,trafficSheetDate[traffic.length * type + tra_index][0].length -1, ' ');
-                                            city.push(value[tra_index])
+                                            city.push(value[tra_index + 2])
                                             return true;
                                         }
                                         return false;
@@ -101,7 +101,7 @@ types.map( type => {
                                     if(!isHas){
                                         let tempRow = [value[0]];
                                         extendArray(tempRow,trafficSheetDate[traffic.length * type + tra_index][0].length - 1, ' ');
-                                        tempRow.push(value[tra_index])
+                                        tempRow.push(value[tra_index + 2])
                                         trafficSheetDate[traffic.length * type + tra_index].push(tempRow)
                                     }
                                 })
@@ -122,7 +122,7 @@ types.map( type => {
                 traffic.map( (tra,tra_index) => {
                     trafficDate[traffic.length * type + tra_index] = {
                         name: type === 0 ? `某地-${cityNameList[cityCodeList.indexOf(trafficCode)]}（来源地）（${traffic[tra_index]}）` : `${cityNameList[cityCodeList.indexOf(trafficCode)]} - 某地（来源地）（${traffic[tra_index]}）`,
-                        date: trafficSheetDate[traffic.length * type + tra_index]
+                        data: trafficSheetDate[traffic.length * type + tra_index]
                     }
                 })
                 y++;
